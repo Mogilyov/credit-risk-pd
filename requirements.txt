@@ -1,0 +1,32 @@
+# Основные библиотеки для ML
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+scipy>=1.10.0
+
+# Для работы с данными
+dvc>=3.30.0
+pandas-profiling>=3.6.0
+
+# Для визуализации
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Для разработки
+pytest>=7.4.0
+black>=23.7.0
+isort>=5.12.0
+flake8>=6.1.0
+pre-commit>=3.3.0
+
+# Для работы с ноутбуками
+jupyter>=1.0.0
+ipykernel>=6.25.0
+
+# Для логирования и мониторинга
+mlflow>=2.7.0
+python-dotenv>=1.0.0
+
+# Для типизации
+mypy>=1.5.0
+types-PyYAML>=6.0.12 
