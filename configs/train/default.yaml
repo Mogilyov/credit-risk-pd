@@ -1,0 +1,3 @@
+max_epochs: 20
+early_stopping: true
+early_stopping_patience: 5

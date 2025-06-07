@@ -145,3 +145,10 @@ plots/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# New additions
+*.onnx
+*.cbm
+*.pkl
+data/**
+.dvc/cache/**

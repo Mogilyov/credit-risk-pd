@@ -1,0 +1,63 @@
+stages:
+  preprocess:
+    cmd: poetry run python src/data/preprocessing.py
+    deps:
+      - src/data/preprocessing.py
+      - data/raw/cs-training.csv
+      - data/raw/cs-test.csv
+    outs:
+      - data/processed/X_processed.csv
+      - data/processed/y_processed.csv
+
+  train_baseline:
+    cmd: poetry run python src/models/baseline_lr.py
+    deps:
+      - src/models/baseline_lr.py
+      - data/processed/X_processed.csv
+      - data/processed/y_processed.csv
+    outs:
+      - models/baseline_lr_model
+
+  tune_cat:
+    cmd: poetry run python -m src.models.train_cat
+    deps:
+      - data/processed/X_processed.csv
+      - data/processed/y_processed.csv
+    outs:
+      - models/catboost_model.cbm
+      - models/catboost_model.onnx
+    metrics:
+      - metrics/catboost_metrics.json:
+          cache: false
+    plots:
+      - plots/catboost_roc_auc.png:
+          cache: false
+          x: iteration
+          y: roc_auc
+
+  tune_tabresnet:
+    cmd: poetry run python -m src.models.train_tabresnet
+    deps:
+      - src/models/train_tabresnet.py
+      - data/processed/X_processed.csv
+      - data/processed/y_processed.csv
+    outs:
+      - models/tabresnet_model.pt
+      - models/tabresnet_model.onnx
+    metrics:
+      - metrics/tabresnet_metrics.json:
+          cache: false
+    plots:
+      - plots/tabresnet_roc_auc.png:
+          cache: false
+
+  tune_stack:
+    cmd: poetry run python -m src.models.train_stack
+    deps:
+      - models/catboost_model.cbm
+      - models/tabresnet_model.pt
+      - data/processed/X_processed.csv
+      - data/processed/y_processed.csv
+    outs:
+      - metrics/stack_metrics.json
+      - models/meta_model.pkl

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/177138344496812646/d5d1096207464a05aa38e593d801a89d/artifacts
+end_time: 1749328306749
+entry_point_name: ""
+experiment_id: "177138344496812646"
+lifecycle_stage: active
+run_id: d5d1096207464a05aa38e593d801a89d
+run_name: tabresnet_optuna
+run_uuid: d5d1096207464a05aa38e593d801a89d
+source_name: ""
+source_type: 4
+source_version: ""
+start_time: 1749328306607
+status: 4
+tags: []
+user_id: georgiy

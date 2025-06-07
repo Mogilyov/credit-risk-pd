@@ -1,0 +1,5 @@
+defaults:
+  - experiment: default
+  - model: catboost
+  - preprocess: default
+  - train: default

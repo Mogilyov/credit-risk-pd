@@ -1,0 +1,78 @@
+schema: '2.0'
+stages:
+  get_data:
+    cmd: python src/data/download.py
+    deps:
+    - path: src/data/download.py
+      hash: md5
+      md5: 45ca19a3da53fe024942114fce3ceffd
+      size: 1668
+    outs:
+    - path: data/raw/Data Dictionary.xls
+      hash: md5
+      md5: 0858898fee35d378798e3b81105ea18b
+      size: 14848
+    - path: data/raw/cs-test.csv
+      hash: md5
+      md5: 62a1c4fe5ae82e6d0665dc97f6cb113a
+      size: 4983329
+    - path: data/raw/cs-training.csv
+      hash: md5
+      md5: cce525a1d41f234f58d3bb52f3d2516b
+      size: 7564965
+    - path: data/raw/sampleEntry.csv
+      hash: md5
+      md5: a427addec809c6fa7d6c6000926c2e70
+      size: 1907226
+  preprocess:
+    cmd: poetry run python src/data/preprocessing.py
+    deps:
+    - path: data/raw/cs-test.csv
+      hash: md5
+      md5: 62a1c4fe5ae82e6d0665dc97f6cb113a
+      size: 4983329
+    - path: data/raw/cs-training.csv
+      hash: md5
+      md5: cce525a1d41f234f58d3bb52f3d2516b
+      size: 7564965
+    - path: src/data/preprocessing.py
+      hash: md5
+      md5: c4de174d0993d80b18e24830e0bfc6e0
+      size: 2284
+    outs:
+    - path: data/processed/X_processed.csv
+      hash: md5
+      md5: 7fc57de88ef502dcc4f7e0cb85f1c43a
+      size: 6752051
+    - path: data/processed/y_processed.csv
+      hash: md5
+      md5: 92f9c12adc63814b806705cbea699c69
+      size: 292059
+  tune_cat:
+    cmd: poetry run python -m src.models.train_cat
+    deps:
+    - path: data/processed/X_processed.csv
+      hash: md5
+      md5: 7fc57de88ef502dcc4f7e0cb85f1c43a
+      size: 6752051
+    - path: data/processed/y_processed.csv
+      hash: md5
+      md5: 92f9c12adc63814b806705cbea699c69
+      size: 292059
+    outs:
+    - path: metrics/catboost_metrics.json
+      hash: md5
+      md5: e03bb5f0bc2b8fc999940d10694279c5
+      size: 35
+    - path: models/catboost_model.cbm
+      hash: md5
+      md5: bb72958824d4b3e58d2ba48a1648df75
+      size: 15193912
+    - path: models/catboost_model.onnx
+      hash: md5
+      md5: 2ee40a1912c8b788647f9716cff7a499
+      size: 86865317
+    - path: plots/catboost_roc_auc.png
+      hash: md5
+      md5: 433376f9a7c57fcff6e31a767d4c6611
+      size: 28995

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/727912868003770356/8b139f283db24fcfb0d783a334fc08b3/artifacts
+end_time: 1749328181762
+entry_point_name: ""
+experiment_id: "727912868003770356"
+lifecycle_stage: active
+run_id: 8b139f283db24fcfb0d783a334fc08b3
+run_name: catboost_optuna
+run_uuid: 8b139f283db24fcfb0d783a334fc08b3
+source_name: ""
+source_type: 4
+source_version: ""
+start_time: 1749328142945
+status: 3
+tags: []
+user_id: georgiy

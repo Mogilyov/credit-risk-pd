@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/727912868003770356
+creation_time: 1749326258866
+experiment_id: "727912868003770356"
+last_update_time: 1749326258866
+lifecycle_stage: active
+name: catboost_optimization

@@ -1,0 +1,3 @@
+impute_strategy: mean
+scaling: standard
+drop_columns: []

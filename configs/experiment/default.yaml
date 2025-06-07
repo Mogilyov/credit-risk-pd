@@ -1,0 +1,11 @@
+cv:
+  n_splits: 5
+  random_state: 42
+
+optuna:
+  n_trials: 30
+  direction: maximize
+
+stacker:
+  meta_model: logistic_regression
+  random_state: 42

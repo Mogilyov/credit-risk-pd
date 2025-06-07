@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  triton:
+    image: nvcr.io/nvcr /nvidia/tritonserver:24.03-py3
+    shm_size: 1g
+    ulimits:
+      memlock: -1
+      stack: 67108864
+    ports:
+      - "8000:8000" # gRPC
+      - "8001:8001" # HTTP
+      - "8002:8002" # Metrics
+    volumes:
+      - ./models/triton:/models
+    command: >
+      tritonserver --model-repository=/models
