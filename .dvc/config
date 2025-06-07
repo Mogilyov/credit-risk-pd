@@ -1,0 +1,4 @@
+[core]
+    remote = myremote
+['remote "myremote"']
+    url = /Users/georgiy/Projects/Study/mlops/dvc_storage
