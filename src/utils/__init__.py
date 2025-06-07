@@ -1,3 +1,1 @@
-"""
-Utility functions and helpers.
-""" 
+"""Credit Risk PD utils module."""

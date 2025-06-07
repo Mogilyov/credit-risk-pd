@@ -1,3 +1,1 @@
-"""
-MLOps project source code package.
-""" 
+"""Credit Risk PD project."""

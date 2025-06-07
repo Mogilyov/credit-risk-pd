@@ -1,3 +1,1 @@
-"""
-Model training and evaluation module.
-""" 
+"""Credit Risk PD models module."""

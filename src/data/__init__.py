@@ -1,3 +1,1 @@
-"""
-Data processing and management module.
-""" 
+"""Credit Risk PD data module."""

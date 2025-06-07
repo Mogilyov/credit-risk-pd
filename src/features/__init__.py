@@ -1,3 +1,1 @@
-"""
-Feature engineering module.
-""" 
+"""Credit Risk PD features module."""
